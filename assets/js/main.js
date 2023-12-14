@@ -12,6 +12,7 @@ const kette = () => {
     if (textInput.includes(letterInput), letterInput !== "") {
         const breakPoint = textInput.indexOf(letterInput)
         const textInputLength = textInput.length
+        const letterInputLength = letterInput.length
 
         if (checkedBefore == true) {
             const beforeNewText = textInput.slice(0, breakPoint)
@@ -20,14 +21,16 @@ const kette = () => {
 
         }
         else {
-            const beforeNewText = textInput.slice(0, breakPoint + 1)
-            const afterNewText = textInput.slice(breakPoint + 1, textInputLength)
+            let newBreakPoint = (breakPoint + letterInput.length)
+            const beforeNewText = textInput.slice(0, newBreakPoint)
+            const afterNewText = textInput.slice((breakPoint + letterInputLength), textInputLength)
             resultBefore.innerHTML = beforeNewText, resultAfter.innerHTML = afterNewText
+
         }
     }
-    if (textInput == "") resultError.innerHTML = "Hei, erstmall gib text ein!!!".toUpperCase(), resultError.style.color = "red"
+    else if (textInput == "") resultError.innerHTML = "Hei, erstmall gib text ein!!!".toUpperCase(), resultError.style.color = "red"
 
-    else resultError.innerHTML = "Dein Buchstabe ist nicht im Text oder hast du keinen Buchstaben gegeben!".toUpperCase(), resultError.style.color = "red"
+    else resultError.innerHTML = "du musst auch sagen wo soll die trennung sein!".toUpperCase(), resultError.style.color = "red"
 }
 
 
