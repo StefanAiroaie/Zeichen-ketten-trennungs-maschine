@@ -16,19 +16,26 @@ const kette = () => {
     let resultError = document.querySelector("#error")
     let resultBefore = document.querySelector("#vor")
     let resultAfter = document.querySelector("#nach")
-    console.log(`aici este textul ${textInput} si aici este litera ${letterInput}`);
 
     // resultAfter.innerHTML = letterInput
     // resultBefore.innerHTML = textInput
+    console.log(checkedBefore);
+    console.log(checkedAfter);
 
     // (textInput.includes(letterInput))
     if (textInput.includes(letterInput)) {
-        const breakPoint = textInput.indexOf(letterInput)
-        const beforeNewText = textInput.slice(0, breakPoint)
-        const textInputLength = textInput.length
-        const afterNewText = textInput.slice(breakPoint, textInputLength)
-        return resultBefore.innerHTML = beforeNewText, resultAfter.innerHTML = afterNewText
 
+        if (checkedBefore == true) {
+            const breakPoint = textInput.indexOf(letterInput)
+            const beforeNewText = textInput.slice(0, breakPoint)
+            const textInputLength = textInput.length
+            const afterNewText = textInput.slice(breakPoint, textInputLength)
+            resultBefore.innerHTML = beforeNewText, resultAfter.innerHTML = afterNewText
+
+        }
+        else {
+            resultBefore.innerHTML = "sadsda", resultAfter.innerHTML = "vadvad"
+        }
     }
 
     else resultError.innerHTML = "Dein Buscstabe ist nicht in TEXT".toUpperCase(), resultError.style.color = "red"
