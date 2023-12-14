@@ -9,27 +9,25 @@ const kette = () => {
     let resultBefore = document.querySelector("#vor")
     let resultAfter = document.querySelector("#nach")
 
-    console.log(checkedBefore);
-    console.log(checkedAfter);
-
-
-    if (textInput.includes(letterInput)) {
+    if (textInput.includes(letterInput), letterInput !== "") {
         const breakPoint = textInput.indexOf(letterInput)
+        const textInputLength = textInput.length
 
         if (checkedBefore == true) {
-
             const beforeNewText = textInput.slice(0, breakPoint)
-            const textInputLength = textInput.length
             const afterNewText = textInput.slice(breakPoint, textInputLength)
             resultBefore.innerHTML = beforeNewText, resultAfter.innerHTML = afterNewText
 
         }
         else {
-            resultBefore.innerHTML = "sadsda", resultAfter.innerHTML = "vadvad"
+            const beforeNewText = textInput.slice(0, breakPoint + 1)
+            const afterNewText = textInput.slice(breakPoint + 1, textInputLength)
+            resultBefore.innerHTML = beforeNewText, resultAfter.innerHTML = afterNewText
         }
     }
+    if (textInput == "") resultError.innerHTML = "Hei, erstmall gib text ein!!!".toUpperCase(), resultError.style.color = "red"
 
-    else resultError.innerHTML = "Dein Buscstabe ist nicht in TEXT".toUpperCase(), resultError.style.color = "red"
+    else resultError.innerHTML = "Dein Buchstabe ist nicht im Text oder hast du keinen Buchstaben gegeben!".toUpperCase(), resultError.style.color = "red"
 }
 
 
