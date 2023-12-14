@@ -18,29 +18,50 @@ const kette = () => {
     let resultAfter = document.querySelector("#nach")
     console.log(`aici este textul ${textInput} si aici este litera ${letterInput}`);
 
-    resultAfter.innerHTML = letterInput
+    // resultAfter.innerHTML = letterInput
+    // resultBefore.innerHTML = textInput
 
-    if (textInput.includes(letterInput))
-        return resultBefore.innerHTML = textInput, resultAfter.innerHTML = letterInput
+    // (textInput.includes(letterInput))
+    if (textInput.includes(letterInput)) {
+        const breakPoint = textInput.indexOf(letterInput)
+        const beforeNewText = textInput.slice(0, breakPoint)
+        const textInputLength = textInput.length
+        const afterNewText = textInput.slice(breakPoint, textInputLength)
+        return resultBefore.innerHTML = beforeNewText, resultAfter.innerHTML = afterNewText
 
+    }
 
-    else
-        return resultError.innerHTML = "Dein Buscstabe ist nicht in TEXT".toUpperCase(), resultError.style.color = "red"
+    else resultError.innerHTML = "Dein Buscstabe ist nicht in TEXT".toUpperCase(), resultError.style.color = "red"
 }
 
 
 
-const getName = function (email) {
-    if (email.includes("@")) {
+// switch (textInput.includes(letterInput)) {
+//     case 1: checkedBefore = true
+//         resultBefore.innerHTML = "text before"
+//         break
+//     case 2: checkedBefore = false
+//         resultBefore.innerHTML = "text after"
+//         break
 
-        // sucht den index von dem symbol "@"
-        const atIndex = email.indexOf("@")
-        // mit sclice wird von Anfang des strings bis zum "@"
-        const name = email.slice(0, atIndex)
+//     default:
+//         resultError.innerHTML = "Dein Buscstabe ist nicht in TEXT".toUpperCase(), resultError.style.color = "red"
+//         break
+// }
 
-        return name
-    } else { return "hei nu e corect" }
-}
+
+
+// const getName = function (email) {
+//     if (email.includes("@")) {
+
+//         // sucht den index von dem symbol "@"
+//         const atIndex = email.indexOf("@")
+//         // mit sclice wird von Anfang des strings bis zum "@"
+//         const name = email.slice(0, atIndex)
+
+//         return name
+//     } else { return "hei nu e corect" }
+// }
 
 
 
